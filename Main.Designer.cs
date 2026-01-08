@@ -45,21 +45,12 @@
             refreshListToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
             quitToolStripMenuItem = new ToolStripMenuItem();
-            gameToolStripMenuItem = new ToolStripMenuItem();
-            startCapuchinToolStripMenuItem = new ToolStripMenuItem();
-            killCapuchinToolStripMenuItem = new ToolStripMenuItem();
-            supportToolStripMenuItem = new ToolStripMenuItem();
-            getPlayerIDToolStripMenuItem = new ToolStripMenuItem();
-            collectGameLogsToolStripMenuItem = new ToolStripMenuItem();
-            melonLoaderToolStripMenuItem = new ToolStripMenuItem();
-            melonLoaderDocumentationToolStripMenuItem = new ToolStripMenuItem();
-            uninstallAllModsToolStripMenuItem = new ToolStripMenuItem();
-            getModsListToolStripMenuItem = new ToolStripMenuItem();
             helpToolStripMenuItem = new ToolStripMenuItem();
             capuchinModdingCommunityToolStripMenuItem = new ToolStripMenuItem();
-            aboutCapuchinModManagerToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator2 = new ToolStripSeparator();
+            aboutCapuchinModManagerToolStripMenuItem = new ToolStripMenuItem();
             gitRepositoryToolStripMenuItem = new ToolStripMenuItem();
+            modListVersion = new ColumnHeader();
             mainStatusReporter.SuspendLayout();
             mainStrip.SuspendLayout();
             SuspendLayout();
@@ -95,7 +86,7 @@
             // 
             modsList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             modsList.CheckBoxes = true;
-            modsList.Columns.AddRange(new ColumnHeader[] { modListName, modListDeveloper });
+            modsList.Columns.AddRange(new ColumnHeader[] { modListName, modListDeveloper, modListVersion });
             modsList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
             listViewItem1.StateImageIndex = 0;
             modsList.Items.AddRange(new ListViewItem[] { listViewItem1 });
@@ -128,7 +119,7 @@
             // 
             // mainStrip
             // 
-            mainStrip.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, gameToolStripMenuItem, supportToolStripMenuItem, melonLoaderToolStripMenuItem, helpToolStripMenuItem });
+            mainStrip.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, helpToolStripMenuItem });
             mainStrip.Location = new Point(0, 0);
             mainStrip.Name = "mainStrip";
             mainStrip.Size = new Size(692, 24);
@@ -146,7 +137,7 @@
             // 
             installToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { fromRepositoryToolStripMenuItem, fromComputerToolStripMenuItem });
             installToolStripMenuItem.Name = "installToolStripMenuItem";
-            installToolStripMenuItem.Size = new Size(134, 22);
+            installToolStripMenuItem.Size = new Size(180, 22);
             installToolStripMenuItem.Text = "Install";
             // 
             // fromRepositoryToolStripMenuItem
@@ -164,83 +155,20 @@
             // refreshListToolStripMenuItem
             // 
             refreshListToolStripMenuItem.Name = "refreshListToolStripMenuItem";
-            refreshListToolStripMenuItem.Size = new Size(134, 22);
+            refreshListToolStripMenuItem.Size = new Size(180, 22);
             refreshListToolStripMenuItem.Text = "Refresh List";
+            refreshListToolStripMenuItem.Click += refreshListToolStripMenuItem_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(131, 6);
+            toolStripSeparator1.Size = new Size(177, 6);
             // 
             // quitToolStripMenuItem
             // 
             quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            quitToolStripMenuItem.Size = new Size(134, 22);
+            quitToolStripMenuItem.Size = new Size(180, 22);
             quitToolStripMenuItem.Text = "Quit";
-            // 
-            // gameToolStripMenuItem
-            // 
-            gameToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { startCapuchinToolStripMenuItem, killCapuchinToolStripMenuItem });
-            gameToolStripMenuItem.Name = "gameToolStripMenuItem";
-            gameToolStripMenuItem.Size = new Size(50, 20);
-            gameToolStripMenuItem.Text = "Game";
-            // 
-            // startCapuchinToolStripMenuItem
-            // 
-            startCapuchinToolStripMenuItem.Name = "startCapuchinToolStripMenuItem";
-            startCapuchinToolStripMenuItem.Size = new Size(152, 22);
-            startCapuchinToolStripMenuItem.Text = "Start Capuchin";
-            // 
-            // killCapuchinToolStripMenuItem
-            // 
-            killCapuchinToolStripMenuItem.Name = "killCapuchinToolStripMenuItem";
-            killCapuchinToolStripMenuItem.Size = new Size(152, 22);
-            killCapuchinToolStripMenuItem.Text = "Kill Capuchin";
-            // 
-            // supportToolStripMenuItem
-            // 
-            supportToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { getPlayerIDToolStripMenuItem, collectGameLogsToolStripMenuItem });
-            supportToolStripMenuItem.Name = "supportToolStripMenuItem";
-            supportToolStripMenuItem.Size = new Size(61, 20);
-            supportToolStripMenuItem.Text = "Support";
-            // 
-            // getPlayerIDToolStripMenuItem
-            // 
-            getPlayerIDToolStripMenuItem.Name = "getPlayerIDToolStripMenuItem";
-            getPlayerIDToolStripMenuItem.Size = new Size(173, 22);
-            getPlayerIDToolStripMenuItem.Text = "Get Player ID";
-            // 
-            // collectGameLogsToolStripMenuItem
-            // 
-            collectGameLogsToolStripMenuItem.Name = "collectGameLogsToolStripMenuItem";
-            collectGameLogsToolStripMenuItem.Size = new Size(173, 22);
-            collectGameLogsToolStripMenuItem.Text = "Collect Game Logs";
-            // 
-            // melonLoaderToolStripMenuItem
-            // 
-            melonLoaderToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { melonLoaderDocumentationToolStripMenuItem, uninstallAllModsToolStripMenuItem, getModsListToolStripMenuItem });
-            melonLoaderToolStripMenuItem.Name = "melonLoaderToolStripMenuItem";
-            melonLoaderToolStripMenuItem.Size = new Size(89, 20);
-            melonLoaderToolStripMenuItem.Text = "MelonLoader";
-            // 
-            // melonLoaderDocumentationToolStripMenuItem
-            // 
-            melonLoaderDocumentationToolStripMenuItem.Name = "melonLoaderDocumentationToolStripMenuItem";
-            melonLoaderDocumentationToolStripMenuItem.Size = new Size(230, 22);
-            melonLoaderDocumentationToolStripMenuItem.Text = "MelonLoader Documentation";
-            melonLoaderDocumentationToolStripMenuItem.Click += melonLoaderDocumentationToolStripMenuItem_Click;
-            // 
-            // uninstallAllModsToolStripMenuItem
-            // 
-            uninstallAllModsToolStripMenuItem.Name = "uninstallAllModsToolStripMenuItem";
-            uninstallAllModsToolStripMenuItem.Size = new Size(230, 22);
-            uninstallAllModsToolStripMenuItem.Text = "Uninstall All Mods";
-            // 
-            // getModsListToolStripMenuItem
-            // 
-            getModsListToolStripMenuItem.Name = "getModsListToolStripMenuItem";
-            getModsListToolStripMenuItem.Size = new Size(230, 22);
-            getModsListToolStripMenuItem.Text = "Get Mods List";
             // 
             // helpToolStripMenuItem
             // 
@@ -256,6 +184,11 @@
             capuchinModdingCommunityToolStripMenuItem.Text = "Capuchin Modding Community";
             capuchinModdingCommunityToolStripMenuItem.Click += capuchinModdingCommunityToolStripMenuItem_Click;
             // 
+            // toolStripSeparator2
+            // 
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new Size(252, 6);
+            // 
             // aboutCapuchinModManagerToolStripMenuItem
             // 
             aboutCapuchinModManagerToolStripMenuItem.Name = "aboutCapuchinModManagerToolStripMenuItem";
@@ -263,16 +196,17 @@
             aboutCapuchinModManagerToolStripMenuItem.Text = "About CapuchinModManager";
             aboutCapuchinModManagerToolStripMenuItem.Click += aboutCapuchinModManagerToolStripMenuItem_Click;
             // 
-            // toolStripSeparator2
-            // 
-            toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(252, 6);
-            // 
             // gitRepositoryToolStripMenuItem
             // 
             gitRepositoryToolStripMenuItem.Name = "gitRepositoryToolStripMenuItem";
             gitRepositoryToolStripMenuItem.Size = new Size(255, 22);
             gitRepositoryToolStripMenuItem.Text = "CapuchinModManager on GitHub";
+            gitRepositoryToolStripMenuItem.Click += gitRepositoryToolStripMenuItem_Click;
+            // 
+            // modListVersion
+            // 
+            modListVersion.Text = "Version";
+            modListVersion.Width = 150;
             // 
             // Main
             // 
@@ -311,21 +245,12 @@
         private ToolStripMenuItem refreshListToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripMenuItem quitToolStripMenuItem;
-        private ToolStripMenuItem gameToolStripMenuItem;
-        private ToolStripMenuItem startCapuchinToolStripMenuItem;
-        private ToolStripMenuItem killCapuchinToolStripMenuItem;
-        private ToolStripMenuItem supportToolStripMenuItem;
-        private ToolStripMenuItem getPlayerIDToolStripMenuItem;
-        private ToolStripMenuItem collectGameLogsToolStripMenuItem;
-        private ToolStripMenuItem melonLoaderToolStripMenuItem;
-        private ToolStripMenuItem melonLoaderDocumentationToolStripMenuItem;
-        private ToolStripMenuItem uninstallAllModsToolStripMenuItem;
-        private ToolStripMenuItem getModsListToolStripMenuItem;
         private ToolStripMenuItem helpToolStripMenuItem;
         private ToolStripMenuItem capuchinModdingCommunityToolStripMenuItem;
         private ToolStripMenuItem aboutCapuchinModManagerToolStripMenuItem;
         private ToolStripStatusLabel toolStripStatusLabel1;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripMenuItem gitRepositoryToolStripMenuItem;
+        private ColumnHeader modListVersion;
     }
 }

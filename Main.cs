@@ -53,11 +53,21 @@ namespace CapuchinModManager
                 modsList.Items.Add(new ListViewItem
                 {
                     Text = mod.Name,
-                    SubItems = { mod.Author }
+                    SubItems = { mod.Author, mod.NetworkData.Version }
                 });
             }
 
             TaskUtilities.ReportCurrentTask("No tasks running", 1, 1);
+        }
+
+        public void RefreshMods()
+        {
+            modsList.Items.Clear();
+            Task.Run(() =>
+            {
+                var mods = ModUtilities.FetchMods();
+                RefreshModList(mods);
+            });
         }
 
         public Main()
@@ -68,12 +78,7 @@ namespace CapuchinModManager
 
         private void Main_Load(object sender, EventArgs e)
         {
-            modsList.Items.Clear();
-            Task.Run(() =>
-            {
-                var mods = ModUtilities.FetchMods();
-                RefreshModList(mods);
-            });
+            RefreshMods();
         }
 
         private void aboutCapuchinModManagerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -95,13 +100,16 @@ namespace CapuchinModManager
             });
         }
 
-        private void melonLoaderDocumentationToolStripMenuItem_Click(object sender, EventArgs e)
+        private void gitRepositoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Process.Start(new ProcessStartInfo
             {
-                FileName = "https://melonwiki.xyz/#/modders/quickstart",
+                FileName = "https://github.com/CapuchinModding/CapuchinModManager",
                 UseShellExecute = true
             });
         }
+
+        private void refreshListToolStripMenuItem_Click(object sender, EventArgs e) =>
+            RefreshMods();
     }
 }

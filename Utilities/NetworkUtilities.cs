@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 
 namespace CapuchinModManager.Utilities
@@ -14,6 +15,8 @@ namespace CapuchinModManager.Utilities
         public static async Task<byte[]> GetBytesFromUrl(string url)
         {
             using var client = new HttpClient();
+            client.DefaultRequestHeaders.UserAgent.ParseAdd("CapuchinModManager");
+
             try
             {
                 var bytes = await client.GetByteArrayAsync(url);
@@ -38,6 +41,8 @@ namespace CapuchinModManager.Utilities
         public static async Task<(string content, byte[] result)> GetStringFromUrl(string url)
         {
             using var client = new HttpClient();
+            client.DefaultRequestHeaders.UserAgent.ParseAdd("CapuchinModManager");
+
             try
             {
                 var str = await client.GetStringAsync(url);

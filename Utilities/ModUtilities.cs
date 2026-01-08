@@ -19,6 +19,8 @@ namespace CapuchinModManager.Utilities
             TaskUtilities.ReportCurrentTask("Parsing mod definitions", 2, 3);
 
             var mods = JsonConvert.DeserializeObject<List<Mod>>(content);
+
+            mods.ForEach(mod => mod.NetworkData.UpdateData());
             
             return mods;
         }

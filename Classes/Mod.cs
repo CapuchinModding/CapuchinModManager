@@ -8,34 +8,45 @@ namespace CapuchinModManager.Classes
         public string Name => name;
         public string Author => author;
         public string Repo => repo;
+
+        private ModNetworkHelper _helper;
+
+        public ModNetworkHelper NetworkData
+        {
+            get
+            {
+                _helper ??= new ModNetworkHelper(this);
+                return _helper;
+            }
+        }
     }
 
     public class ModNetworkHelper(Mod mod)
     {
-        public Version Version;
+        public string Version;
         public string DownloadUrl;
         public OutputType OutputType;
 
         // updates downloads, versions, outputtype, etc
-        public async Task<byte[]> UpdateData()
+        public byte[] UpdateData()
         {
-            var url = $"https://api.github.com//repos/{mod.Repo}/releases/latest";
-            var (data, result) = await NetworkUtilities.GetStringFromUrl(url);
+            var url = $"https://api.github.com/repos/{mod.Repo}/releases/latest";
+            var (data, result) = NetworkUtilities.GetStringFromUrl(url).Result;
 
             if (result != ErrorUtilities.Ok)
             {
                 // error handling
             }
 
-            var apiData = JsonConvert.DeserializeObject<Dictionary<string, object>>(data);
+            var apiData = JsonConvert.DeserializeObject<Release>(data);
 
             if (apiData == null)
-                return ErrorUtilities.ReportError(typeof(ModNetworkHelper).FullName, "UpdateData() -> GitHub API data returned null. Cannot update.");
+                return ErrorUtilities.ReportError(typeof(ModNetworkHelper).FullName, $"UpdateData() -> GitHub API null for {url}.\nOOPS");
 
-            Version = new Version((string)apiData["tag_name"]);
+            Version = apiData.tag_name;
 
 #region This is where the error comes from
-            DownloadUrl = (string)((List<Dictionary<string, object>>)apiData["assets"])[0]["browser_download_url"];
+            DownloadUrl = apiData.assets.First().browser_download_url;
 #endregion
 
             OutputType = OutputType.Plugins;
