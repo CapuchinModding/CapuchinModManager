@@ -1,13 +1,14 @@
 using CapuchinModManager.Utilities;
-using System.Xml;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CapuchinModManager
 {
     public static class Program
     {
         public static Version Version => new("1.0.0");
-        public static string DiscordInviteUrl => "https://discord.gg/awVb24kMxw";
+
+        public const string DiscordInviteUrl = "https://discord.gg/awVb24kMxw";
+
+        public const string ModListUrl = "https://raw.githubusercontent.com/CapuchinModding/CapuchinModManager/refs/heads/master/mods.json";
 
         [STAThread]
         static void Main()

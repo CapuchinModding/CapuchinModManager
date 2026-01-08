@@ -31,41 +31,46 @@
             ListViewItem listViewItem1 = new ListViewItem(new string[] { "Mod Name", "Author" }, -1);
             mainStatusReporter = new StatusStrip();
             taskLabel = new ToolStripStatusLabel();
+            toolStripStatusLabel1 = new ToolStripStatusLabel();
             taskProgress = new ToolStripProgressBar();
-            managerTabControl = new TabControl();
-            modsPage = new TabPage();
             modsList = new ListView();
             modListName = new ColumnHeader();
             modListDeveloper = new ColumnHeader();
             installButton = new Button();
-            capuchinPage = new TabPage();
-            melonLoaderControlPanel = new GroupBox();
-            getModsListButton = new Button();
-            uninstallModsButton = new Button();
-            melonLoaderDocsButton = new Button();
-            supportControlPanel = new GroupBox();
-            getLogsButton = new Button();
-            aboutCMMButton = new Button();
-            discordButton = new Button();
-            getPlayerIdButton = new Button();
-            gameControlPanel = new GroupBox();
-            button1 = new Button();
-            runCapuchinButton = new Button();
+            mainStrip = new MenuStrip();
+            fileToolStripMenuItem = new ToolStripMenuItem();
+            installToolStripMenuItem = new ToolStripMenuItem();
+            fromRepositoryToolStripMenuItem = new ToolStripMenuItem();
+            fromComputerToolStripMenuItem = new ToolStripMenuItem();
+            refreshListToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator1 = new ToolStripSeparator();
+            quitToolStripMenuItem = new ToolStripMenuItem();
+            gameToolStripMenuItem = new ToolStripMenuItem();
+            startCapuchinToolStripMenuItem = new ToolStripMenuItem();
+            killCapuchinToolStripMenuItem = new ToolStripMenuItem();
+            supportToolStripMenuItem = new ToolStripMenuItem();
+            getPlayerIDToolStripMenuItem = new ToolStripMenuItem();
+            collectGameLogsToolStripMenuItem = new ToolStripMenuItem();
+            melonLoaderToolStripMenuItem = new ToolStripMenuItem();
+            melonLoaderDocumentationToolStripMenuItem = new ToolStripMenuItem();
+            uninstallAllModsToolStripMenuItem = new ToolStripMenuItem();
+            getModsListToolStripMenuItem = new ToolStripMenuItem();
+            helpToolStripMenuItem = new ToolStripMenuItem();
+            capuchinModdingCommunityToolStripMenuItem = new ToolStripMenuItem();
+            aboutCapuchinModManagerToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator2 = new ToolStripSeparator();
+            gitRepositoryToolStripMenuItem = new ToolStripMenuItem();
             mainStatusReporter.SuspendLayout();
-            managerTabControl.SuspendLayout();
-            modsPage.SuspendLayout();
-            capuchinPage.SuspendLayout();
-            melonLoaderControlPanel.SuspendLayout();
-            supportControlPanel.SuspendLayout();
-            gameControlPanel.SuspendLayout();
+            mainStrip.SuspendLayout();
             SuspendLayout();
             // 
             // mainStatusReporter
             // 
-            mainStatusReporter.Items.AddRange(new ToolStripItem[] { taskLabel, taskProgress });
+            mainStatusReporter.Items.AddRange(new ToolStripItem[] { taskLabel, toolStripStatusLabel1, taskProgress });
             mainStatusReporter.Location = new Point(0, 458);
             mainStatusReporter.Name = "mainStatusReporter";
-            mainStatusReporter.Size = new Size(624, 22);
+            mainStatusReporter.RightToLeft = RightToLeft.No;
+            mainStatusReporter.Size = new Size(692, 22);
             mainStatusReporter.TabIndex = 0;
             mainStatusReporter.Text = "statusStrip1";
             // 
@@ -75,33 +80,16 @@
             taskLabel.Size = new Size(143, 17);
             taskLabel.Text = "Updating mod definitions";
             // 
+            // toolStripStatusLabel1
+            // 
+            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            toolStripStatusLabel1.Size = new Size(13, 17);
+            toolStripStatusLabel1.Text = "  ";
+            // 
             // taskProgress
             // 
             taskProgress.Name = "taskProgress";
             taskProgress.Size = new Size(200, 16);
-            // 
-            // managerTabControl
-            // 
-            managerTabControl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            managerTabControl.Controls.Add(modsPage);
-            managerTabControl.Controls.Add(capuchinPage);
-            managerTabControl.Location = new Point(0, 2);
-            managerTabControl.Name = "managerTabControl";
-            managerTabControl.SelectedIndex = 0;
-            managerTabControl.Size = new Size(624, 453);
-            managerTabControl.TabIndex = 1;
-            // 
-            // modsPage
-            // 
-            modsPage.Controls.Add(modsList);
-            modsPage.Controls.Add(installButton);
-            modsPage.Location = new Point(4, 24);
-            modsPage.Name = "modsPage";
-            modsPage.Padding = new Padding(3);
-            modsPage.Size = new Size(616, 425);
-            modsPage.TabIndex = 0;
-            modsPage.Text = "Mods";
-            modsPage.UseVisualStyleBackColor = true;
             // 
             // modsList
             // 
@@ -111,9 +99,9 @@
             modsList.HeaderStyle = ColumnHeaderStyle.Nonclickable;
             listViewItem1.StateImageIndex = 0;
             modsList.Items.AddRange(new ListViewItem[] { listViewItem1 });
-            modsList.Location = new Point(6, 6);
+            modsList.Location = new Point(10, 24);
             modsList.Name = "modsList";
-            modsList.Size = new Size(604, 383);
+            modsList.Size = new Size(672, 398);
             modsList.TabIndex = 1;
             modsList.UseCompatibleStateImageBehavior = false;
             modsList.View = View.Details;
@@ -131,162 +119,177 @@
             // installButton
             // 
             installButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            installButton.Location = new Point(516, 395);
+            installButton.Location = new Point(588, 429);
             installButton.Name = "installButton";
             installButton.Size = new Size(94, 24);
             installButton.TabIndex = 0;
             installButton.Text = "Install";
             installButton.UseVisualStyleBackColor = true;
             // 
-            // capuchinPage
+            // mainStrip
             // 
-            capuchinPage.Controls.Add(melonLoaderControlPanel);
-            capuchinPage.Controls.Add(supportControlPanel);
-            capuchinPage.Controls.Add(gameControlPanel);
-            capuchinPage.Location = new Point(4, 24);
-            capuchinPage.Name = "capuchinPage";
-            capuchinPage.Padding = new Padding(3);
-            capuchinPage.Size = new Size(616, 425);
-            capuchinPage.TabIndex = 1;
-            capuchinPage.Text = "Capuchin";
-            capuchinPage.UseVisualStyleBackColor = true;
+            mainStrip.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, gameToolStripMenuItem, supportToolStripMenuItem, melonLoaderToolStripMenuItem, helpToolStripMenuItem });
+            mainStrip.Location = new Point(0, 0);
+            mainStrip.Name = "mainStrip";
+            mainStrip.Size = new Size(692, 24);
+            mainStrip.TabIndex = 2;
+            mainStrip.Text = "Main Strip";
             // 
-            // melonLoaderControlPanel
+            // fileToolStripMenuItem
             // 
-            melonLoaderControlPanel.Controls.Add(getModsListButton);
-            melonLoaderControlPanel.Controls.Add(uninstallModsButton);
-            melonLoaderControlPanel.Controls.Add(melonLoaderDocsButton);
-            melonLoaderControlPanel.Location = new Point(8, 281);
-            melonLoaderControlPanel.Name = "melonLoaderControlPanel";
-            melonLoaderControlPanel.Size = new Size(289, 138);
-            melonLoaderControlPanel.TabIndex = 2;
-            melonLoaderControlPanel.TabStop = false;
-            melonLoaderControlPanel.Text = "MelonLoader";
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { installToolStripMenuItem, refreshListToolStripMenuItem, toolStripSeparator1, quitToolStripMenuItem });
+            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            fileToolStripMenuItem.Size = new Size(49, 20);
+            fileToolStripMenuItem.Text = "Mods";
             // 
-            // getModsListButton
+            // installToolStripMenuItem
             // 
-            getModsListButton.Location = new Point(6, 107);
-            getModsListButton.Name = "getModsListButton";
-            getModsListButton.Size = new Size(273, 23);
-            getModsListButton.TabIndex = 2;
-            getModsListButton.Text = "Get Mods List";
-            getModsListButton.UseVisualStyleBackColor = true;
+            installToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { fromRepositoryToolStripMenuItem, fromComputerToolStripMenuItem });
+            installToolStripMenuItem.Name = "installToolStripMenuItem";
+            installToolStripMenuItem.Size = new Size(134, 22);
+            installToolStripMenuItem.Text = "Install";
             // 
-            // uninstallModsButton
+            // fromRepositoryToolStripMenuItem
             // 
-            uninstallModsButton.Location = new Point(6, 78);
-            uninstallModsButton.Name = "uninstallModsButton";
-            uninstallModsButton.Size = new Size(273, 23);
-            uninstallModsButton.TabIndex = 1;
-            uninstallModsButton.Text = "Uninstall All Mods";
-            uninstallModsButton.UseVisualStyleBackColor = true;
+            fromRepositoryToolStripMenuItem.Name = "fromRepositoryToolStripMenuItem";
+            fromRepositoryToolStripMenuItem.Size = new Size(161, 22);
+            fromRepositoryToolStripMenuItem.Text = "From Repository";
             // 
-            // melonLoaderDocsButton
+            // fromComputerToolStripMenuItem
             // 
-            melonLoaderDocsButton.Location = new Point(6, 22);
-            melonLoaderDocsButton.Name = "melonLoaderDocsButton";
-            melonLoaderDocsButton.Size = new Size(273, 23);
-            melonLoaderDocsButton.TabIndex = 0;
-            melonLoaderDocsButton.Text = "MelonLoader Documentation";
-            melonLoaderDocsButton.UseVisualStyleBackColor = true;
+            fromComputerToolStripMenuItem.Name = "fromComputerToolStripMenuItem";
+            fromComputerToolStripMenuItem.Size = new Size(161, 22);
+            fromComputerToolStripMenuItem.Text = "From Computer";
             // 
-            // supportControlPanel
+            // refreshListToolStripMenuItem
             // 
-            supportControlPanel.Controls.Add(getLogsButton);
-            supportControlPanel.Controls.Add(aboutCMMButton);
-            supportControlPanel.Controls.Add(discordButton);
-            supportControlPanel.Controls.Add(getPlayerIdButton);
-            supportControlPanel.Location = new Point(8, 106);
-            supportControlPanel.Name = "supportControlPanel";
-            supportControlPanel.Size = new Size(289, 159);
-            supportControlPanel.TabIndex = 1;
-            supportControlPanel.TabStop = false;
-            supportControlPanel.Text = "Support";
+            refreshListToolStripMenuItem.Name = "refreshListToolStripMenuItem";
+            refreshListToolStripMenuItem.Size = new Size(134, 22);
+            refreshListToolStripMenuItem.Text = "Refresh List";
             // 
-            // getLogsButton
+            // toolStripSeparator1
             // 
-            getLogsButton.Location = new Point(6, 51);
-            getLogsButton.Name = "getLogsButton";
-            getLogsButton.Size = new Size(277, 23);
-            getLogsButton.TabIndex = 3;
-            getLogsButton.Text = "Collect Game Logs";
-            getLogsButton.UseVisualStyleBackColor = true;
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(131, 6);
             // 
-            // aboutCMMButton
+            // quitToolStripMenuItem
             // 
-            aboutCMMButton.Location = new Point(6, 130);
-            aboutCMMButton.Name = "aboutCMMButton";
-            aboutCMMButton.Size = new Size(277, 23);
-            aboutCMMButton.TabIndex = 2;
-            aboutCMMButton.Text = "About CapuchinModManager";
-            aboutCMMButton.UseVisualStyleBackColor = true;
-            aboutCMMButton.Click += aboutCMMButton_Click;
+            quitToolStripMenuItem.Name = "quitToolStripMenuItem";
+            quitToolStripMenuItem.Size = new Size(134, 22);
+            quitToolStripMenuItem.Text = "Quit";
             // 
-            // discordButton
+            // gameToolStripMenuItem
             // 
-            discordButton.Location = new Point(6, 101);
-            discordButton.Name = "discordButton";
-            discordButton.Size = new Size(277, 23);
-            discordButton.TabIndex = 1;
-            discordButton.Text = "Capuchin Modding Community Discord";
-            discordButton.UseVisualStyleBackColor = true;
-            discordButton.Click += discordButton_Click;
+            gameToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { startCapuchinToolStripMenuItem, killCapuchinToolStripMenuItem });
+            gameToolStripMenuItem.Name = "gameToolStripMenuItem";
+            gameToolStripMenuItem.Size = new Size(50, 20);
+            gameToolStripMenuItem.Text = "Game";
             // 
-            // getPlayerIdButton
+            // startCapuchinToolStripMenuItem
             // 
-            getPlayerIdButton.Location = new Point(6, 22);
-            getPlayerIdButton.Name = "getPlayerIdButton";
-            getPlayerIdButton.Size = new Size(277, 23);
-            getPlayerIdButton.TabIndex = 0;
-            getPlayerIdButton.Text = "Get Player ID";
-            getPlayerIdButton.UseVisualStyleBackColor = true;
+            startCapuchinToolStripMenuItem.Name = "startCapuchinToolStripMenuItem";
+            startCapuchinToolStripMenuItem.Size = new Size(152, 22);
+            startCapuchinToolStripMenuItem.Text = "Start Capuchin";
             // 
-            // gameControlPanel
+            // killCapuchinToolStripMenuItem
             // 
-            gameControlPanel.Controls.Add(button1);
-            gameControlPanel.Controls.Add(runCapuchinButton);
-            gameControlPanel.Location = new Point(8, 6);
-            gameControlPanel.Name = "gameControlPanel";
-            gameControlPanel.Size = new Size(289, 85);
-            gameControlPanel.TabIndex = 0;
-            gameControlPanel.TabStop = false;
-            gameControlPanel.Text = "Game";
+            killCapuchinToolStripMenuItem.Name = "killCapuchinToolStripMenuItem";
+            killCapuchinToolStripMenuItem.Size = new Size(152, 22);
+            killCapuchinToolStripMenuItem.Text = "Kill Capuchin";
             // 
-            // button1
+            // supportToolStripMenuItem
             // 
-            button1.Location = new Point(6, 51);
-            button1.Name = "button1";
-            button1.Size = new Size(277, 23);
-            button1.TabIndex = 1;
-            button1.Text = "Kill Capuchin Process";
-            button1.UseVisualStyleBackColor = true;
+            supportToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { getPlayerIDToolStripMenuItem, collectGameLogsToolStripMenuItem });
+            supportToolStripMenuItem.Name = "supportToolStripMenuItem";
+            supportToolStripMenuItem.Size = new Size(61, 20);
+            supportToolStripMenuItem.Text = "Support";
             // 
-            // runCapuchinButton
+            // getPlayerIDToolStripMenuItem
             // 
-            runCapuchinButton.Location = new Point(6, 22);
-            runCapuchinButton.Name = "runCapuchinButton";
-            runCapuchinButton.Size = new Size(277, 23);
-            runCapuchinButton.TabIndex = 0;
-            runCapuchinButton.Text = "Start Capuchin";
-            runCapuchinButton.UseVisualStyleBackColor = true;
+            getPlayerIDToolStripMenuItem.Name = "getPlayerIDToolStripMenuItem";
+            getPlayerIDToolStripMenuItem.Size = new Size(173, 22);
+            getPlayerIDToolStripMenuItem.Text = "Get Player ID";
+            // 
+            // collectGameLogsToolStripMenuItem
+            // 
+            collectGameLogsToolStripMenuItem.Name = "collectGameLogsToolStripMenuItem";
+            collectGameLogsToolStripMenuItem.Size = new Size(173, 22);
+            collectGameLogsToolStripMenuItem.Text = "Collect Game Logs";
+            // 
+            // melonLoaderToolStripMenuItem
+            // 
+            melonLoaderToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { melonLoaderDocumentationToolStripMenuItem, uninstallAllModsToolStripMenuItem, getModsListToolStripMenuItem });
+            melonLoaderToolStripMenuItem.Name = "melonLoaderToolStripMenuItem";
+            melonLoaderToolStripMenuItem.Size = new Size(89, 20);
+            melonLoaderToolStripMenuItem.Text = "MelonLoader";
+            // 
+            // melonLoaderDocumentationToolStripMenuItem
+            // 
+            melonLoaderDocumentationToolStripMenuItem.Name = "melonLoaderDocumentationToolStripMenuItem";
+            melonLoaderDocumentationToolStripMenuItem.Size = new Size(230, 22);
+            melonLoaderDocumentationToolStripMenuItem.Text = "MelonLoader Documentation";
+            melonLoaderDocumentationToolStripMenuItem.Click += melonLoaderDocumentationToolStripMenuItem_Click;
+            // 
+            // uninstallAllModsToolStripMenuItem
+            // 
+            uninstallAllModsToolStripMenuItem.Name = "uninstallAllModsToolStripMenuItem";
+            uninstallAllModsToolStripMenuItem.Size = new Size(230, 22);
+            uninstallAllModsToolStripMenuItem.Text = "Uninstall All Mods";
+            // 
+            // getModsListToolStripMenuItem
+            // 
+            getModsListToolStripMenuItem.Name = "getModsListToolStripMenuItem";
+            getModsListToolStripMenuItem.Size = new Size(230, 22);
+            getModsListToolStripMenuItem.Text = "Get Mods List";
+            // 
+            // helpToolStripMenuItem
+            // 
+            helpToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { capuchinModdingCommunityToolStripMenuItem, toolStripSeparator2, aboutCapuchinModManagerToolStripMenuItem, gitRepositoryToolStripMenuItem });
+            helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            helpToolStripMenuItem.Size = new Size(44, 20);
+            helpToolStripMenuItem.Text = "Help";
+            // 
+            // capuchinModdingCommunityToolStripMenuItem
+            // 
+            capuchinModdingCommunityToolStripMenuItem.Name = "capuchinModdingCommunityToolStripMenuItem";
+            capuchinModdingCommunityToolStripMenuItem.Size = new Size(255, 22);
+            capuchinModdingCommunityToolStripMenuItem.Text = "Capuchin Modding Community";
+            capuchinModdingCommunityToolStripMenuItem.Click += capuchinModdingCommunityToolStripMenuItem_Click;
+            // 
+            // aboutCapuchinModManagerToolStripMenuItem
+            // 
+            aboutCapuchinModManagerToolStripMenuItem.Name = "aboutCapuchinModManagerToolStripMenuItem";
+            aboutCapuchinModManagerToolStripMenuItem.Size = new Size(255, 22);
+            aboutCapuchinModManagerToolStripMenuItem.Text = "About CapuchinModManager";
+            aboutCapuchinModManagerToolStripMenuItem.Click += aboutCapuchinModManagerToolStripMenuItem_Click;
+            // 
+            // toolStripSeparator2
+            // 
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new Size(252, 6);
+            // 
+            // gitRepositoryToolStripMenuItem
+            // 
+            gitRepositoryToolStripMenuItem.Name = "gitRepositoryToolStripMenuItem";
+            gitRepositoryToolStripMenuItem.Size = new Size(255, 22);
+            gitRepositoryToolStripMenuItem.Text = "CapuchinModManager on GitHub";
             // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(624, 480);
-            Controls.Add(managerTabControl);
+            ClientSize = new Size(692, 480);
+            Controls.Add(modsList);
+            Controls.Add(installButton);
             Controls.Add(mainStatusReporter);
+            Controls.Add(mainStrip);
             Name = "Main";
             Text = "CapuchinModManager";
+            Load += Main_Load;
             mainStatusReporter.ResumeLayout(false);
             mainStatusReporter.PerformLayout();
-            managerTabControl.ResumeLayout(false);
-            modsPage.ResumeLayout(false);
-            capuchinPage.ResumeLayout(false);
-            melonLoaderControlPanel.ResumeLayout(false);
-            supportControlPanel.ResumeLayout(false);
-            gameControlPanel.ResumeLayout(false);
+            mainStrip.ResumeLayout(false);
+            mainStrip.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -296,24 +299,33 @@
         private StatusStrip mainStatusReporter;
         public ToolStripStatusLabel taskLabel;
         public ToolStripProgressBar taskProgress;
-        private TabControl managerTabControl;
-        private TabPage modsPage;
         private Button installButton;
-        private TabPage capuchinPage;
         private ListView modsList;
         private ColumnHeader modListName;
         private ColumnHeader modListDeveloper;
-        private GroupBox gameControlPanel;
-        private Button runCapuchinButton;
-        private GroupBox supportControlPanel;
-        private Button getPlayerIdButton;
-        private Button button1;
-        private Button getLogsButton;
-        private Button aboutCMMButton;
-        private Button discordButton;
-        private GroupBox melonLoaderControlPanel;
-        private Button getModsListButton;
-        private Button uninstallModsButton;
-        private Button melonLoaderDocsButton;
+        private MenuStrip mainStrip;
+        private ToolStripMenuItem fileToolStripMenuItem;
+        private ToolStripMenuItem installToolStripMenuItem;
+        private ToolStripMenuItem fromRepositoryToolStripMenuItem;
+        private ToolStripMenuItem fromComputerToolStripMenuItem;
+        private ToolStripMenuItem refreshListToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripMenuItem quitToolStripMenuItem;
+        private ToolStripMenuItem gameToolStripMenuItem;
+        private ToolStripMenuItem startCapuchinToolStripMenuItem;
+        private ToolStripMenuItem killCapuchinToolStripMenuItem;
+        private ToolStripMenuItem supportToolStripMenuItem;
+        private ToolStripMenuItem getPlayerIDToolStripMenuItem;
+        private ToolStripMenuItem collectGameLogsToolStripMenuItem;
+        private ToolStripMenuItem melonLoaderToolStripMenuItem;
+        private ToolStripMenuItem melonLoaderDocumentationToolStripMenuItem;
+        private ToolStripMenuItem uninstallAllModsToolStripMenuItem;
+        private ToolStripMenuItem getModsListToolStripMenuItem;
+        private ToolStripMenuItem helpToolStripMenuItem;
+        private ToolStripMenuItem capuchinModdingCommunityToolStripMenuItem;
+        private ToolStripMenuItem aboutCapuchinModManagerToolStripMenuItem;
+        private ToolStripStatusLabel toolStripStatusLabel1;
+        private ToolStripSeparator toolStripSeparator2;
+        private ToolStripMenuItem gitRepositoryToolStripMenuItem;
     }
 }

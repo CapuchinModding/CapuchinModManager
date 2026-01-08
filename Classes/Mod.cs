@@ -3,9 +3,10 @@ using Newtonsoft.Json;
 
 namespace CapuchinModManager.Classes
 {
-    public class Mod(string name, string repo)
+    public class Mod(string name, string author, string repo)
     {
         public string Name => name;
+        public string Author => author;
         public string Repo => repo;
     }
 

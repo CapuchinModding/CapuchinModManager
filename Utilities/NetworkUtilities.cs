@@ -33,8 +33,6 @@ namespace CapuchinModManager.Utilities
                     _ => ErrorUtilities.OopsCode(1)
                 };
             }
-
-            return ErrorUtilities.OopsCode(1);
         }
 
         public static async Task<(string content, byte[] result)> GetStringFromUrl(string url)
@@ -59,8 +57,6 @@ namespace CapuchinModManager.Utilities
                     _ => (string.Empty, ErrorUtilities.OopsCode(1))
                 };
             }
-
-            return (string.Empty, ErrorUtilities.OopsCode(1));
         }
 
         // sends ping to GitHub api to test connections
