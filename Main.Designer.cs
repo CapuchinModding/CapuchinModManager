@@ -50,6 +50,7 @@
             getPlayerIdButton = new Button();
             gameControlPanel = new GroupBox();
             button1 = new Button();
+            cat_wall! = new Button ();
             runCapuchinButton = new Button();
             mainStatusReporter.SuspendLayout();
             managerTabControl.SuspendLayout();
